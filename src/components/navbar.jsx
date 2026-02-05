@@ -31,6 +31,7 @@
 
 import React, { useState } from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {  ` QA`
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,11 +46,11 @@ const Navbar = () => {  ` QA`
 
         {/* Desktop Links */}
         <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <a href="/">Home</a>
+         <link to="/pages/Contact"></link> {/* <a href="/">Home</a> */}
           <a href="/properties">Properties</a>
           <a href="/invest">Invest</a>
-          <a href="/about">About</a>
-          <button className="nav-cta mobile-only">
+          <a href="./pages/Contact">Contact</a>
+          <button className="nav-cta mobile-only" onClick={ ()=>{}}>
             Get Started
           </button>
         </nav>
