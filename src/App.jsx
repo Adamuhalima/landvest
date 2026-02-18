@@ -1,29 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import React from 'react'
-import './App.css'
-import Navbar from './components/navbar'
-
-//import {Link} from 'react-router-dom';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from './pages/home'
+import Navbar from './components/Navbar'
+import { Routes, Route } from "react-router-dom";
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import Invest from './pages/invest'
+import About from './pages/about'
+import Properties from './pages/properties'
 
 function App() {
-  return (<>
-  <BrowserRouter>
-    <Navbar/>
-     <Router>
+  return (
+    <>
+      <Navbar />
+{/* <div className="bg-gray-900 pt-50" > */}
       <Routes>
-       
-        <Route path='./pages/Home.jsx' element={<h1>Home</h1>} />
-         <Route path='./pages/Contact.jsx' element={<h1>Contact</h1>} />
-       
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/invest" element={<Invest />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/properties" element={<Properties />} />
       </Routes>
-   </Router> 
 
-    <Home />
- 
-    </BrowserRouter>
-   </>
-  )}
+{/* </div> */}
+    </> 
+  )
+}
+
 export default App

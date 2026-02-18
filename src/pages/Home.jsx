@@ -1,19 +1,18 @@
-import Navbar from "../components/navbar";
-
+import React from "react";
 function Home() {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="">
       {/* Navbar */}
-      <Navbar />
+      
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-24 py-20">
+      <section className="">
         <div className="text-center">
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h1 className="">
             Invest in Premium
             <span className="text-sky-400"> Land Properties</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-8 max-w-3xl mx-auto">
             Discover verified land opportunities with secure transactions and transparent processes. Start building your real estate portfolio today.
           </p>
           
@@ -38,7 +37,7 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Feature 1 */}
           <div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-750 transition-colors">
-            <div className="text-sky-400 text-4xl mb-4">🏆</div>
+            <div className="text-sky-400 text-4xl mb-4 bg-yellow">🏆</div>
             <h3 className="font-heading text-2xl font-bold text-white mb-3">
               Verified Properties
             </h3>
@@ -50,7 +49,7 @@ function Home() {
           {/* Feature 2 */}
           <div className="bg-gray-800 p-8 rounded-lg hover:bg-gray-750 transition-colors">
             <div className="text-sky-400 text-4xl mb-4">🔒</div>
-            <h3 className="font-heading text-2xl font-bold text-white mb-3">
+            <h3 className="text-pink-500 font-bold">
               Secure Transactions
             </h3>
             <p className="text-gray-300">

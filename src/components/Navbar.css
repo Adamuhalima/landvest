@@ -20,8 +20,27 @@
   
 
 }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: black;
+  z-index: 1000;
+}
 
 .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* .nav-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 18px 20px;
@@ -29,7 +48,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: -400px;
-}
+} */
 
 /* Logo */
 .logo span {

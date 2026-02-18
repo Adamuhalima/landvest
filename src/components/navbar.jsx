@@ -33,7 +33,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {  ` QA`
+const Navbar = () => { 
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -45,15 +45,12 @@ const Navbar = () => {  ` QA`
         </div>
 
         {/* Desktop Links */}
-        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-         <link to="/pages/Contact"></link> {/* <a href="/">Home</a> */}
-          <a href="/properties">Properties</a>
-          <a href="/invest">Invest</a>
-          <a href="./pages/Contact">Contact</a>
-          <button className="nav-cta mobile-only" onClick={ ()=>{}}>
-            Get Started
-          </button>
-        </nav>
+<nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+  <Link to="/">Home</Link>
+  <Link to="/properties">Properties</Link>
+  <Link to="/invest">Invest</Link>
+  <Link to="/contact">Contact</Link>
+</nav>
 
         {/* Desktop CTA */}
         <button className="nav-cta desktop-only">
