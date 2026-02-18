@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+/* ****************PROPERTIES PAGE**************** */
+
+.propeties-main {
+  background: #f8fafc;
+  max-width: 1200px;
+  margin: 0 -200px;
+  padding: 2rem;
+}

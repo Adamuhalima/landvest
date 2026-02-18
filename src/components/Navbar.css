@@ -29,6 +29,15 @@
   z-index: 1000;
 }
 
+.propp {
+  margin-right: 70px;  /* Adjust based on navbar height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+}
+
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
