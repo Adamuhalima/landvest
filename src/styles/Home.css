@@ -48,7 +48,9 @@
   font-size: var(--font-size-sm);
   margin-bottom: var(--spacing-xl);
   border: 1px solid rgba(255, 255, 255, 0.1);
-}
+  
+  
+};
 
 .hero-title {
   font-size: var(--font-size-5xl);
@@ -63,6 +65,7 @@
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
   margin-top: var(--spacing-sm);
 }
 

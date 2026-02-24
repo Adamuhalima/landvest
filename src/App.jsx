@@ -1,16 +1,18 @@
-import Navbar from './components/Navbar'
+import Navbar from "./components/navbar";
 import { Routes, Route } from "react-router-dom";
-// import Home from './pages/Home'
+//import Home from './pages/Home'
 import Contact from './pages/Contact'
 import Invest from './pages/invest'
 import About from './pages/about'
 import Properties from './pages/properties'
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
+//import { APIProvider, Map } from '@vis.gl/react-google-maps';
+
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Navbar />
 {/* <div className="bg-gray-900 pt-50" > */}
       <Routes>
@@ -23,7 +25,7 @@ function App() {
       <Footer />
 
 {/* </div> */}
-    </> 
+    </div> 
   )
 }
 

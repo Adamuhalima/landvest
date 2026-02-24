@@ -50,11 +50,13 @@ const Navbar = () => {
   <Link to="/properties">Properties</Link>
   <Link to="/invest">Invest</Link>
   <Link to="/contact">Contact</Link>
+  <Link to="/about">About</Link>
 </nav>
 
         {/* Desktop CTA */}
         <button className="nav-cta desktop-only">
-          Get Started
+          <Link to="/landing" className="nav-cta desktop-only">
+          Get Started </Link>
         </button>
 
         {/* Hamburger */}
