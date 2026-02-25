@@ -1,32 +1,3 @@
-// import react, { useState } from "react";
-// import './Navbar.css'
-
-
-
-// function Navbar() {
-//   return (
-//     <>
-
-//    <nav className="navbar">
-//     <div className="navbar-container">
-//       <link to="/" className="navbar-logo"> <h1>Adamz</h1> 
-//       </link>
-//     </div>
-//     <div>
-//       <ul>
-//         <li>Home</li>
-//         <li>Home</li>
-//         <li>Home</li>
-//         <li>Home</li>
-//         <li>Home</li>
-//       </ul>
-//       </div>
-//    </nav>
-//     </>
-//   )
-// }
-
-// export default Navbar
 
 
 import React, { useState } from "react";
@@ -74,3 +45,35 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+// import react, { useState } from "react";
+// import './Navbar.css'
+
+
+
+// function Navbar() {
+//   return (
+//     <>
+
+//    <nav className="navbar">
+//     <div className="navbar-container">
+//       <link to="/" className="navbar-logo"> <h1>Adamz</h1> 
+//       </link>
+//     </div>
+//     <div>
+//       <ul>
+//         <li>Home</li>
+//         <li>Home</li>
+//         <li>Home</li>
+//         <li>Home</li>
+//         <li>Home</li>
+//       </ul>
+//       </div>
+//    </nav>
+//     </>
+//   )
+// }
+
+// export default Navbar
