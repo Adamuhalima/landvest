@@ -72,14 +72,14 @@ const AboutPage = () => {
       name: 'Adamu Halima',
       role: 'Founder & CEO',
       bio: 'Former real estate developer with 15+ years experience in the Cameroonian market. Passionate about democratizing property investment.',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400',
+      image: '../assets/adam.jpg',
       expertise: ['Real Estate Development', 'Investment Strategy', 'Market Analysis']
     },
     {
       name: 'Jean-Pierre Mbarga',
       role: 'Chief Investment Officer',
       bio: 'Ex-investment banker with expertise in property valuation and portfolio management. Leads our property vetting process.',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400',
       expertise: ['Financial Analysis', 'Risk Management', 'Portfolio Strategy']
     },
     {
@@ -422,7 +422,7 @@ const AboutPage = () => {
               </Link>
               <a href="tel:+237123456789" className="btn btn-outline btn-large">
                 <Phone size={20} />
-                Call +237 123 456 789
+                Call +237 652 244 621
               </a>
             </div>
             <div className="office-hours">
@@ -454,7 +454,7 @@ const AboutPage = () => {
                   <Phone size={20} />
                   <div>
                     <h4>Phone</h4>
-                    <p>+237 123 456 789<br />+237 987 654 321</p>
+                    <p>+237 623 456 789<br />+237 657 654 321</p>
                   </div>
                 </div>
                 
@@ -471,7 +471,8 @@ const AboutPage = () => {
                 <p>Trusted by investors from</p>
                 <div className="company-logos">
                   <span>National Bank</span>
-                  <span>Afriland</span>
+                  <span>Beac</span>
+                  <span>Afriland First Bank</span>
                   <span>Société Générale</span>
                 </div>
               </div>
@@ -479,11 +480,11 @@ const AboutPage = () => {
 
             <div className="location-map">
               <div className="map-placeholder">
-                {/* <img 
+                <img 
                   src="https://images.unsplash.com/photo-1577086664693-894d8405334a?w=600" 
                   alt="Map of Yaoundé"
-                /> */}
-                <Map
+                />
+                {/* <Map
                 google = {this.props.google}
                 style = {{width: '100%', height: '400px', position: 'relative'}}
                 zoom = {10}
@@ -491,7 +492,7 @@ const AboutPage = () => {
                   lat: 4.155966,
                   lng: 9.263224
                 }}
-                />
+                /> */}
                 <div className="map-overlay">
                   <MapPin size={32} />
                   <span>LandVest Headquarters</span>
