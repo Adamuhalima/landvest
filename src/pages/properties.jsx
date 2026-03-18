@@ -340,7 +340,7 @@ const PropertiesPage = () => {
     }
   };
 
-  return (
+  return ( 
     <div className="properties-page">
       {/* Hero Section */}
       <section className="properties-hero">
@@ -362,6 +362,7 @@ const PropertiesPage = () => {
             </div>
             <button className="quick-search-btn" onClick={() => setCurrentPage(1)}>
               Search
+              
             </button>
           </div>
 

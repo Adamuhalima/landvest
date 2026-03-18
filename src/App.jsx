@@ -7,6 +7,7 @@ import About from './pages/about'
 import Properties from './pages/properties'
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
+ import TestSupabasePage from './testSupabase';
 //import { APIProvider, Map } from '@vis.gl/react-google-maps';
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/invest" element={<Invest />} />
         <Route path="/about" element={<About />} />
         <Route path="/properties" element={<Properties />} />
+       { <Route path="/testSupabase" element={<TestSupabasePage />} /> }
       </Routes>
       <Footer />
 

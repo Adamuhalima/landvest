@@ -20,8 +20,9 @@ const Navbar = () => {
   <Link to="/">Home</Link>
   <Link to="/properties">Properties</Link>
   <Link to="/invest">Invest</Link>
-  <Link to="/contact">Contact</Link>
+  {/* <Link to="/contact">Contact</Link> */}
   <Link to="/about">About</Link>
+  <Link to="/testSupabase">Test Supabase</Link>
 </nav>
 
         {/* Desktop CTA */}
