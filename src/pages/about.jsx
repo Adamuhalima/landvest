@@ -72,22 +72,15 @@ const AboutPage = () => {
       name: 'Adamu Mouminih',
       role: 'Founder & CEO',
       bio: 'Former real estate developer with 15+ years experience in the Cameroonian market. Passionate about democratizing property investment.',
-<<<<<<< HEAD
       image: 'src/assets/adam.jpg',
-=======
-      image: '../assets/adam.jpg',
->>>>>>> 44d18cd39a1043e1516fb9eba77ee26d1070efd4
       expertise: ['Real Estate Development', 'Investment Strategy', 'Market Analysis']
     },
     {
       name: 'Fongang Caleb',
       role: 'Chief Investment Officer',
       bio: 'Ex-investment banker with expertise in property valuation and portfolio management. Leads our property vetting process.',
-<<<<<<< HEAD
       image: 'src/assets/CALEB.jpg',
-=======
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400',
->>>>>>> 44d18cd39a1043e1516fb9eba77ee26d1070efd4
+
       expertise: ['Financial Analysis', 'Risk Management', 'Portfolio Strategy']
     },
     {
