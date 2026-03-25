@@ -22,12 +22,12 @@ const Navbar = () => {
   <Link to="/invest">Invest</Link>
   {/* <Link to="/contact">Contact</Link> */}
   <Link to="/about">About</Link>
-  <Link to="/testSupabase">Test Supabase</Link>
+  {/* <Link to="/testSupabase">Test Supabase</Link> */}
 </nav>
 
         {/* Desktop CTA */}
         <button className="nav-cta desktop-only">
-          <Link to="/landing" className="nav-cta desktop-only">
+          <Link to="/CreateListing" className="nav-cta desktop-only">
           Get Started </Link>
         </button>
 

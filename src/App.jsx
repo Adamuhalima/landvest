@@ -8,12 +8,14 @@ import Properties from './pages/properties'
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
  import TestSupabasePage from './testSupabase';
+ import CreateListing from "./pages/createListing";
 //import { APIProvider, Map } from '@vis.gl/react-google-maps';
 
 
 function App() {
   return (
     <div className="App">
+
       <Navbar />
 {/* <div className="bg-gray-900 pt-50" > */}
       <Routes>
@@ -22,9 +24,12 @@ function App() {
         <Route path="/invest" element={<Invest />} />
         <Route path="/about" element={<About />} />
         <Route path="/properties" element={<Properties />} />
+        
        { <Route path="/testSupabase" element={<TestSupabasePage />} /> }
       </Routes>
-      <Footer />
+      <Routes>
+         <Route path="/createListing" element={<CreateListing />} />
+      </Routes>
 
 {/* </div> */}
     </div> 

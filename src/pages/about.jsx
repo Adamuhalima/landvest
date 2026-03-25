@@ -69,21 +69,21 @@ const AboutPage = () => {
   // Team members
   const teamMembers = [
     {
-      name: 'Adamu Halima',
+      name: 'Adamu Mouminih',
       role: 'Founder & CEO',
       bio: 'Former real estate developer with 15+ years experience in the Cameroonian market. Passionate about democratizing property investment.',
-      image: '../assets/adam.jpg',
+      image: 'src/assets/adam.jpg',
       expertise: ['Real Estate Development', 'Investment Strategy', 'Market Analysis']
     },
     {
-      name: 'Jean-Pierre Mbarga',
+      name: 'Fongang Caleb',
       role: 'Chief Investment Officer',
       bio: 'Ex-investment banker with expertise in property valuation and portfolio management. Leads our property vetting process.',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400',
+      image: 'src/assets/CALEB.jpg',
       expertise: ['Financial Analysis', 'Risk Management', 'Portfolio Strategy']
     },
     {
-      name: 'Christine Ndi',
+      name: 'Kaka Martin',
       role: 'Head of Operations',
       bio: 'Ensures smooth day-to-day operations and investor relations. Previously managed large-scale property portfolios.',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',

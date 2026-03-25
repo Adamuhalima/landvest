@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import '../styles/design-system.css';
 import '../styles/invest.css';
+import CreateListing from './createListing';
 
 const InvestPage = () => {
   const [activeTab, setActiveTab] = useState('opportunities');
@@ -351,6 +352,15 @@ const InvestPage = () => {
           </div>
         </div>
       </section>
+      <div className="create-Investment">
+       <h3> Create investment section </h3>
+        {/* <button > <Link to="/createListing">Create Investment</Link> </button> */}
+
+        <button className="nav-cta desktop-only create-listing-button">
+                  <Link to="/createListing" className="nav-cta desktop-only">
+                  Creat Listing </Link>
+                </button>
+      </div>
 
       {/* Main Content */}
       <div className="invest-container">

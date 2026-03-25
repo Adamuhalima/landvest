@@ -1307,3 +1307,17 @@
     width: 100%;
   }
 }
+
+.create-Investment{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-self: center;
+  border: dashed bold #f59e0b ;
+
+}
+
+.create-listing-button{
+  width: 100%;
+  color: white;
+}
