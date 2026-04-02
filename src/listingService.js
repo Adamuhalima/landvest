@@ -21,6 +21,7 @@ export const createListingService = async (listingData) => {
       area: parseFloat(listingData.area),
       bedrooms: parseInt(listingData.bedrooms),
       bathrooms: parseInt(listingData.bathrooms),
+      file: listingData.file, // Assuming this is a URL or base64 string
       description: listingData.description,
       created_at: new Date().toISOString(),
       created_by: user?.id || null,

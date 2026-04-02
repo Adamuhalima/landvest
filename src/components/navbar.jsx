@@ -22,6 +22,8 @@ const Navbar = () => {
   <Link to="/invest">Invest</Link>
   {/* <Link to="/contact">Contact</Link> */}
   <Link to="/about">About</Link>
+  <Link to="/login">Login</Link>
+  <Link to="/signup">Signup</Link>
   {/* <Link to="/testSupabase">Test Supabase</Link> */}
 </nav>
 

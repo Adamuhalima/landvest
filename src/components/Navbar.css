@@ -97,7 +97,9 @@
 }
 
 .nav-cta:hover {
-  background: #0ea5e9;
+  color: white;
+  font-style: bold;
+  font-size: medium;
 }
 
 /* Hamburger */

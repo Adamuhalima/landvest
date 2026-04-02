@@ -11,8 +11,9 @@ export default function CreateListing() {
     bedrooms: '',
     bathrooms: '',
     area: '',
+    file: '',
     description: '',
-    propertyType: 'apartment',
+    //propertyType: 'apartment',
   })
 
   const [submitted, setSubmitted] = useState(false)
@@ -36,9 +37,10 @@ export default function CreateListing() {
       !formData.name ||
       !formData.location ||
       !formData.price ||
+      !formData.area ||
       !formData.bedrooms ||
       !formData.bathrooms ||
-      !formData.area ||
+      !formData.file ||
       !formData.description
     ) {
       setErrorMessage('Please fill in all fields')
@@ -62,11 +64,12 @@ export default function CreateListing() {
           name: '',
           location: '',
           price: '',
+          area: '',
           bedrooms: '',
           bathrooms: '',
-          area: '',
+          file: '',
           description: '',
-          propertyType: 'apartment',
+         // propertyType: 'apartment',
         })
 
         setSubmitted(false)
@@ -212,6 +215,21 @@ export default function CreateListing() {
             </div>
 
           </div>
+
+          <div className="form-group">
+              <label htmlFor="name">Property Pictures or Video</label>
+              <input
+                type="file"
+                multiple
+                accept='image/*, video/*'
+                id="file"
+                name="file"
+                value={formData.file}
+                onChange={handleChange}
+                placeholder="e.g, Pictures, videos"
+                required
+              />
+            </div>
 
           <div className="form-group">
             <label htmlFor="description">Description</label>

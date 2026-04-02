@@ -8,7 +8,9 @@ import Properties from './pages/properties'
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
  import TestSupabasePage from './testSupabase';
- import CreateListing from "./pages/createListing";
+import CreateListing from "./pages/createListing";
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 //import { APIProvider, Map } from '@vis.gl/react-google-maps';
 
 
@@ -25,6 +27,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/properties" element={<Properties />} />
         
+<Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
        { <Route path="/testSupabase" element={<TestSupabasePage />} /> }
       </Routes>
       <Routes>
