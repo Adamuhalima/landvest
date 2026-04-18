@@ -482,6 +482,7 @@
   font-size: var(--font-size-sm);
   cursor: pointer;
   transition: all var(--transition-base);
+  border-radius: 20px;
 }
 
 .invest-now-btn:hover {

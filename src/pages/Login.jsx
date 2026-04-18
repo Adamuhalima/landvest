@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -9,6 +10,17 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // Check if user is already logged in
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        navigate('/');
+      }
+    };
+    checkUser();
+  }, [navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +52,7 @@ const Login = () => {
         {/* Logo/Header */}
         <div className="text-center">
           <div className="mx-auto h-16 w-16 flex items-center justify-center rounded-2xl bg-secondary-100 mb-4">
-            <span className="text-2xl font-bold text-secondary-600">LV</span>
+            <span className="text-2xl font-bold text-secondary-600 text-blue">LandVest</span>
           </div>
           <h2 className="text-3xl font-bold text-neutral-900">Welcome back</h2>
           <p className="mt-2 text-neutral-600">
@@ -125,7 +137,7 @@ const Login = () => {
           <p className="text-neutral-600 text-sm">
             Don't have an account?{' '}
             <Link to="/signup" className="font-semibold text-primary-600 hover:text-primary-700">
-              Sign up here
+              Sign up here.
             </Link>
           </p>
         </div>

@@ -4,7 +4,6 @@ import { supabase } from './supabaseClient'
 export const createListingService = async (listingData) => {
   try {
     if (!supabase) {
-      console.warn('Supabase not initialized. Listing saved locally.')
       return { success: true, data: listingData }
     }
 
@@ -37,7 +36,6 @@ export const createListingService = async (listingData) => {
 
     return { success: true, data }
   } catch (error) {
-    console.error('Error creating listing:', error)
     return { success: false, error: error.message }
   }
 }
@@ -45,7 +43,6 @@ export const createListingService = async (listingData) => {
 export const getListingsService = async () => {
   try {
     if (!supabase) {
-      console.warn('Supabase not initialized. Returning empty listings.')
       return { success: true, data: [] }
     }
 
@@ -64,7 +61,6 @@ export const getListingsService = async () => {
 
     return { success: true, data }
   } catch (error) {
-    console.error('Error fetching listings:', error)
     return { success: false, error: error.message }
   }
 }
@@ -73,7 +69,6 @@ export const getListingsService = async () => {
 export const signUpService = async (email, password, fullName) => {
   try {
     if (!supabase) {
-      console.warn('Supabase not initialized. Signup saved locally.')
       return { success: true, data: { email, fullName } }
     }
 
@@ -91,7 +86,6 @@ export const signUpService = async (email, password, fullName) => {
 
     return { success: true, data }
   } catch (error) {
-    console.error('Error signing up:', error)
     return { success: false, error: error.message }
   }
 }
@@ -99,7 +93,6 @@ export const signUpService = async (email, password, fullName) => {
 export const loginService = async (email, password) => {
   try {
     if (!supabase) {
-      console.warn('Supabase not initialized. Login failed.')
       return { success: false, error: 'Supabase not initialized' }
     }
 
@@ -112,7 +105,6 @@ export const loginService = async (email, password) => {
 
     return { success: true, data }
   } catch (error) {
-    console.error('Error logging in:', error)
     return { success: false, error: error.message }
   }
 }
@@ -120,7 +112,6 @@ export const loginService = async (email, password) => {
 export const logoutService = async () => {
   try {
     if (!supabase) {
-      console.warn('Supabase not initialized.')
       return { success: true }
     }
 
@@ -130,7 +121,6 @@ export const logoutService = async () => {
 
     return { success: true }
   } catch (error) {
-    console.error('Error logging out:', error)
     return { success: false, error: error.message }
   }
 }
@@ -149,7 +139,6 @@ export const getCurrentUserService = async () => {
 
     return { success: true, user }
   } catch (error) {
-    console.error('Error getting current user:', error)
     return { success: false, user: null }
   }
 }

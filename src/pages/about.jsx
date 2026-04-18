@@ -447,7 +447,7 @@ const AboutPage = () => {
                   <MapPin size={20} />
                   <div>
                     <h4>Address</h4>
-                    <p>Bastos, Rue Principale<br />Yaoundé, Cameroon</p>
+                    <p>Mayor St, Molyko Buea<br />Buea, Cameroon</p>
                   </div>
                 </div>
                 
@@ -455,7 +455,7 @@ const AboutPage = () => {
                   <Phone size={20} />
                   <div>
                     <h4>Phone</h4>
-                    <p>+237 623 456 789<br />+237 657 654 321</p>
+                    <p>+237 623 456 789<br />+237 657 565 288</p>
                   </div>
                 </div>
                 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import { createListingService } from '../services/listingService'
+import { createListingService } from '../services/listingService'
 import '../styles/createListing.css'
 
 export default function CreateListing() {
@@ -11,23 +11,33 @@ export default function CreateListing() {
     bedrooms: '',
     bathrooms: '',
     area: '',
-    file: '',
+    files: [],
     description: '',
-    //propertyType: 'apartment',
+    propertyType: 'apartment',
   })
 
   const [submitted, setSubmitted] = useState(false)
   const [successMessage, setSuccessMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [fileNames, setFileNames] = useState([])
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value, type, files } = e.target
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
+    if (type === 'file') {
+      const fileList = Array.from(files || [])
+      setFormData({
+        ...formData,
+        files: fileList,
+      })
+      setFileNames(fileList.map(f => f.name))
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      })
+    }
   }
 
   const handleSubmit = async (e) => {
@@ -40,11 +50,11 @@ export default function CreateListing() {
       !formData.area ||
       !formData.bedrooms ||
       !formData.bathrooms ||
-      !formData.file ||
+      formData.files.length === 0 ||
       !formData.description
     ) {
-      setErrorMessage('Please fill in all fields')
-      setTimeout(() => setErrorMessage(''), 3000)
+      setErrorMessage('Please fill in all fields and upload at least one file')
+      setTimeout(() => setErrorMessage(''), 30)
       return
     }
 
@@ -67,10 +77,11 @@ export default function CreateListing() {
           area: '',
           bedrooms: '',
           bathrooms: '',
-          file: '',
+          files: [],
           description: '',
-         // propertyType: 'apartment',
+          propertyType: 'apartment',
         })
+        setFileNames([])
 
         setSubmitted(false)
         setSuccessMessage('')
@@ -217,18 +228,26 @@ export default function CreateListing() {
           </div>
 
           <div className="form-group">
-              <label htmlFor="name">Property Pictures or Video</label>
+              <label htmlFor="files">Property Pictures or Video</label>
               <input
                 type="file"
                 multiple
                 accept='image/*, video/*'
-                id="file"
-                name="file"
-                value={formData.file}
+                id="files"
+                name="files"
                 onChange={handleChange}
-                placeholder="e.g, Pictures, videos"
                 required
               />
+              {fileNames.length > 0 && (
+                <div className="mt-3 text-sm text-gray-600">
+                  <p className="font-semibold">Selected files: {fileNames.length}</p>
+                  <ul className="list-disc list-inside mt-2">
+                    {fileNames.map((name, idx) => (
+                      <li key={idx}>{name}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
           <div className="form-group">

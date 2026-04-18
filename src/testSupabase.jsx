@@ -14,8 +14,6 @@ function TestSupabasePage() {
         setStatus("✅ Supabase connected successfully! Data length: " + data.length);
       }
     } catch (err) {
-        console.log(import.meta.env.VITE_SUPABASE_URL);
-console.log(import.meta.env.VITE_SUPABASE_ANON_KEY);
       setStatus("❌ Unexpected error: " + err.message);
     }
   };

@@ -32,6 +32,7 @@ import {
   Settings,
   HelpCircle
 } from 'lucide-react';
+import { formatFCFA } from '../utils/currencyFormatter';
 import '../styles/design-system.css';
 import '../styles/invest.css';
 import CreateListing from './createListing';
@@ -250,16 +251,6 @@ const InvestPage = () => {
     }
   ];
 
-  // Format currency
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'XAF',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(amount).replace('XAF', 'FCFA');
-  };
-
   // Handle investment
   const handleInvest = (property) => {
     setSelectedProperty(property);
@@ -275,7 +266,7 @@ const InvestPage = () => {
       setIsLoading(false);
       setShowInvestmentModal(false);
       // Show success message or update portfolio
-      alert(`Successfully invested ${formatCurrency(investmentAmount)} in ${selectedProperty.title}`);
+      alert(`Successfully invested ${formatFCFA(investmentAmount)} in ${selectedProperty.title}`);
     }, 1500);
   };
 
@@ -811,13 +802,17 @@ const InvestPage = () => {
             <p>Join thousands of Cameroonians already earning passive income through real estate</p>
             <div className="cta-buttons">
               <button className="btn btn-primary btn-large">
+                 <Link to="/CreateListing " >
                 Start Investing Today
+                </Link>
                 <ArrowUpRight size={20} />
               </button>
-              <Link to="/contact" className="btn btn-outline btn-large">
+               <a href="https://wa.me/237652244621/" className="btn btn-outline btn-large" >
+              {/* <Link to="/contact" className="btn btn-outline btn-large"> */}
                 Talk to an Advisor
                 <HelpCircle size={20} />
-              </Link>
+              {/* </Link> */}
+             </a>
             </div>
             <p className="cta-note">No minimum commitment • Cancel anytime • Secure platform</p>
           </div>

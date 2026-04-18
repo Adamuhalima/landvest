@@ -61,8 +61,6 @@ const HomePage = () => {
       if (currentStep >= steps) {
         clearInterval(timer);
         setCounts(targets);
-        console.log("superbase connected");
-        
       }
     }, increment);
 
