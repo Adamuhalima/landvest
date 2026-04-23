@@ -399,7 +399,7 @@ const AboutPage = () => {
                     <span>Monthly payouts</span>
                   </div>
                 </div>
-                <Link to="/invest" className="btn btn-primary btn-large">
+                <Link to="/createListing" className="btn btn-primary btn-large">
                   Start Investing
                   <ArrowRight size={20} />
                 </Link>
