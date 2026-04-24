@@ -71,7 +71,7 @@ const Signup = () => {
               Email address
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <div className="absolute inset-y-0 left-90 pl-3 flex items-center pointer-events-none">
                 <Mail className="h-4 sm:h-5 w-4 sm:w-5 text-neutral-400" />
               </div>
               <input
@@ -93,7 +93,7 @@ const Signup = () => {
               Password
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <div className="absolute inset-y-0 left-90 pl-3 flex items-center pointer-events-none">
                 <Lock className="h-4 sm:h-5 w-4 sm:w-5 text-neutral-400" />
               </div>
               <input

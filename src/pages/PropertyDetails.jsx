@@ -469,6 +469,8 @@ const PropertyDetails = () => {
                 </div>
               )}
 
+
+            </div>{/* ✅ investment-card closes here */}
               <button 
                 onClick={() => {
                   if (!user) {
@@ -483,8 +485,6 @@ const PropertyDetails = () => {
                 <TrendingUp size={18} />
                 Invest Now
               </button>
-            </div>{/* ✅ investment-card closes here */}
-
             {/* Contact Card */}
             <div className="contact-card">
               <h3>Contact Property Owner</h3>

@@ -274,7 +274,7 @@
 /* Investments Grid */
 .investments-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   gap: 24px;
 }
 
@@ -287,13 +287,13 @@
   width: 100%;
 }
 
-.cp{
+/* .cp{
   display: flex;
   background: #1ba2ea;
   padding: 12px;
   width: 100%;
 
-}
+} */
 .investment-card:hover {
   border-color: #a1afcd;
   box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15);
