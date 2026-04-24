@@ -123,7 +123,11 @@ const Navbar = () => {
           {/* Show only when logged in */}
           {user && (
             <>
+<<<<<<< HEAD
               {/* <Link to="/invest">Invest</Link> */}
+=======
+              <Link to="/invest">Invest</Link>
+>>>>>>> e47371500781bdce0d2e7a01ddb45c4b3786ec6c
             </>
           )}
         </nav>

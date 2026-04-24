@@ -67,7 +67,6 @@ const PropertyDetails = () => {
         if (result.success) {
           setProperty(result.data);
           setError(null);
-          // Set default fraction price to 1% of property price
           setFractionPrice(result.data.price / 100);
         } else {
           setError(result.error);
@@ -103,7 +102,6 @@ const PropertyDetails = () => {
         const stats = await getPropertyInvestmentStats(property.id);
         setInvestmentStats(stats);
         
-        // Fetch investment progress
         const progressResult = await getPropertyInvestmentProgress(property.id);
         if (progressResult.success) {
           setInvestmentProgress(progressResult.data);
@@ -113,7 +111,6 @@ const PropertyDetails = () => {
     fetchStats();
   }, [property]);
 
-  // Get images and videos from media files
   const getMediaFiles = (mediaFiles) => {
     if (!mediaFiles || !Array.isArray(mediaFiles)) return { images: [], videos: [] };
     
@@ -149,7 +146,7 @@ const PropertyDetails = () => {
   }
 
   const { images, videos } = getMediaFiles(property.media_files);
-  const allMedia = images; // For now, show images
+  const allMedia = images;
   const mainImage = allMedia.length > 0 ? allMedia[currentImageIndex].public_url : 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800';
 
   const handleInvestment = async (e) => {
@@ -184,11 +181,10 @@ const PropertyDetails = () => {
         setInvestmentSuccess(true);
         setNumFractions(1);
         setShowInvestModal(false);
-        // Refresh investment stats
+
         const stats = await getPropertyInvestmentStats(property.id);
         setInvestmentStats(stats);
         
-        // Refresh investment progress
         const progressResult = await getPropertyInvestmentProgress(property.id);
         if (progressResult.success) {
           setInvestmentProgress(progressResult.data);
@@ -218,18 +214,15 @@ const PropertyDetails = () => {
   const handleShare = () => {
     const shareUrl = `${window.location.origin}/property/${property.id}`;
     
-    // Try to use Web Share API if available
     if (navigator.share) {
       navigator.share({
         title: property.name,
         text: `Check out this property: ${property.name}`,
         url: shareUrl
-      }).catch(err => {
-        // Fallback: copy to clipboard
+      }).catch(() => {
         copyShareLink(shareUrl);
       });
     } else {
-      // Fallback: copy to clipboard
       copyShareLink(shareUrl);
     }
   };
@@ -294,7 +287,6 @@ const PropertyDetails = () => {
           )}
         </div>
 
-        {/* Thumbnail Gallery */}
         {allMedia.length > 1 && (
           <div className="thumbnails">
             {allMedia.map((image, index) => (
@@ -333,7 +325,7 @@ const PropertyDetails = () => {
         </div>
 
         <div className="details-grid">
-          {/* Left Column - Main Details */}
+          {/* Left Column */}
           <div className="details-left">
             {/* Key Features */}
             <section className="details-section">
@@ -386,7 +378,7 @@ const PropertyDetails = () => {
               </section>
             )}
 
-            {/* Media Gallery - All Images and Videos */}
+            {/* Media Gallery */}
             {(images.length > 1 || videos.length > 0) && (
               <section className="details-section">
                 <h2>Gallery</h2>
@@ -419,7 +411,7 @@ const PropertyDetails = () => {
             )}
           </div>
 
-          {/* Right Column - Contact & Additional Info */}
+          {/* Right Column */}
           <div className="details-right">
             {/* Property Info Card */}
             <div className="info-card">
@@ -450,7 +442,6 @@ const PropertyDetails = () => {
             <div className="investment-card">
               <h3>Investment Opportunity</h3>
               
-              {/* Investment Progress Bar */}
               <ProgressBar 
                 percentage={investmentProgress.percentage || 0}
                 totalFractions={100}
@@ -471,14 +462,14 @@ const PropertyDetails = () => {
                   <span className="stat-value">{investmentStats.totalFractions} fractions</span>
                 </div>
               </div>
+
               {investmentSuccess && (
                 <div className="success-message">
                   ✓ Investment successful! Check your profile for details.
                 </div>
               )}
-            
-            </div>
-            <button 
+
+              <button 
                 onClick={() => {
                   if (!user) {
                     navigate('/login');
@@ -492,6 +483,7 @@ const PropertyDetails = () => {
                 <TrendingUp size={18} />
                 Invest Now
               </button>
+            </div>{/* ✅ investment-card closes here */}
 
             {/* Contact Card */}
             <div className="contact-card">
@@ -526,9 +518,9 @@ const PropertyDetails = () => {
                 </ul>
               </div>
             )}
-          </div>
-        </div>
-      </div>
+          </div>{/* ✅ details-right closes here */}
+        </div>{/* ✅ details-grid closes here */}
+      </div>{/* ✅ property-details-content closes here */}
 
       {/* Lightbox Modal */}
       {showLightbox && allMedia.length > 0 && (
