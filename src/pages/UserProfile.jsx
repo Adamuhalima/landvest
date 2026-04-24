@@ -398,6 +398,7 @@ const UserProfile = () => {
                   <p>{investment.properties?.location || 'Location not available'}</p>
                 </div>
 
+        <div className="cards-for-owrneship">
                 <div className="investment-details">
                   <div className="detail-item">
                     <span className="detail-label">Fractions Owned</span>
@@ -421,7 +422,8 @@ const UserProfile = () => {
                     {formatFCFA(investment.total_amount, 2)}
                   </span>
                 </div>
-
+                </div>
+<br />
                 <div className="investment-date">
                   <Calendar size={14} />
                   <span>{new Date(investment.created_at).toLocaleDateString('en-US', {

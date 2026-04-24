@@ -22,7 +22,8 @@ import {
   Sparkles,
   Briefcase,
   GraduationCap,
-  Calendar
+  Calendar,
+   MessageCircle
 } from 'lucide-react';
 import '../styles/design-system.css';
 import '../styles/about.css';
@@ -72,7 +73,7 @@ const AboutPage = () => {
       name: 'Adamu Mouminih',
       role: 'Founder & CEO',
       bio: 'Former real estate developer with 15+ years experience in the Cameroonian market. Passionate about democratizing property investment.',
-      image: 'src/assets/adam.jpg',
+      image: 'src/assets/adamulinkin.jpeg',
       expertise: ['Real Estate Development', 'Investment Strategy', 'Market Analysis']
     },
     {
@@ -84,17 +85,17 @@ const AboutPage = () => {
       expertise: ['Financial Analysis', 'Risk Management', 'Portfolio Strategy']
     },
     {
-      name: 'Kaka Martin',
+      name: 'El-Hajj Khalid Duni',
       role: 'Head of Operations',
       bio: 'Ensures smooth day-to-day operations and investor relations. Previously managed large-scale property portfolios.',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
+      image: 'src/assets/Alhadjikhalid.jpg',
       expertise: ['Operations Management', 'Investor Relations', 'Property Management']
     },
     {
-      name: 'Dr. Paul Akono',
+      name: 'Prof. Abdu Yerima',
       role: 'Legal & Compliance',
       bio: 'Real estate attorney ensuring all properties have clean titles and our platform complies with regulations.',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
+      image: 'src/assets/Abduyerima.jpg',
       expertise: ['Property Law', 'Regulatory Compliance', 'Title Verification']
     }
   ];
@@ -399,7 +400,7 @@ const AboutPage = () => {
                     <span>Monthly payouts</span>
                   </div>
                 </div>
-                <Link to="/invest" className="btn btn-primary btn-large">
+                <Link to="/createListing" className="btn btn-primary btn-large">
                   Start Investing
                   <ArrowRight size={20} />
                 </Link>
@@ -417,10 +418,10 @@ const AboutPage = () => {
             <h2>Have Questions? We're Here to Help</h2>
             <p>Our team is ready to guide you through your investment journey</p>
             <div className="contact-buttons">
-              <Link to="/contact" className="btn btn-primary btn-large">
+              <a href="https://wa.me/237652244621" className="btn btn-primary btn-large">
                 Contact Us
-                <Mail size={20} />
-              </Link>
+                <MessageCircle size={20} color="#25D366" />
+              </a>
               <a href="tel:+237123456789" className="btn btn-outline btn-large">
                 <Phone size={20} />
                 Call +237 652 244 621

@@ -3,12 +3,16 @@
   margin: 0;
   padding: 0;
   text-align: center;
+  background: #000;
+  color: #fff;
 }
 
 .App {
   width: 100%;
   margin: 0;
   padding: 0;
+  background: #000;
+  color: #fff;
 }
 
 /* Add padding-top to account for fixed navbar (70px) */
@@ -21,10 +25,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #fff8);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #fff8);
 }
 
 @keyframes logo-spin {

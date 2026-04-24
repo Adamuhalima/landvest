@@ -101,13 +101,8 @@ const Navbar = () => {
     navigate('/');
   };
 
-  // Don't show navbar if user is not logged in
-  if (!user) {
-    return null;
-  }
-
   // Get first name from email
-  const firstName = user.email?.split('@')[0] || 'User';
+  const firstName = user?.email?.split('@')[0] || 'User';
 
   return (
     <header className="navbar">
@@ -124,135 +119,158 @@ const Navbar = () => {
           <Link to="/">Home</Link>
           <Link to="/properties">Properties</Link>
           <Link to="/about">About</Link>
+          
+          {/* Show only when logged in */}
+          {user && (
+            <>
+              {/* <Link to="/invest">Invest</Link> */}
+            </>
+          )}
         </nav>
 
         {/* Right Section - Notifications, Create Listing, Profile, Logout */}
         <div className="nav-right-section desktop-only">
-          {/* Notifications */}
-          <div className="notification-container">
-            <button 
-              onClick={() => setNotificationOpen(!notificationOpen)}
-              className="notification-bell"
-            >
-              <Bell size={20} />
-              {(pendingTransfers.length + sentTransfers.length + sellerNotifications.length) > 0 && (
-                <span className="notification-badge">{pendingTransfers.length + sentTransfers.length + sellerNotifications.length}</span>
-              )}
-            </button>
+          {/* Show only when logged in */}
+          {user ? (
+            <>
+              {/* Notifications */}
+              <div className="notification-container">
+                <button 
+                  onClick={() => setNotificationOpen(!notificationOpen)}
+                  className="notification-bell"
+                >
+                  <Bell size={20} />
+                  {(pendingTransfers.length + sentTransfers.length + sellerNotifications.length) > 0 && (
+                    <span className="notification-badge">{pendingTransfers.length + sentTransfers.length + sellerNotifications.length}</span>
+                  )}
+                </button>
 
-            {/* Notification Dropdown */}
-            {notificationOpen && (
-              <div className="notification-dropdown">
-                <div className="notification-header">
-                  <h3>Transfers</h3>
-                  <button 
-                    onClick={() => setNotificationOpen(false)}
-                    className="close-notification"
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
+                {/* Notification Dropdown */}
+                {notificationOpen && (
+                  <div className="notification-dropdown">
+                    <div className="notification-header">
+                      <h3>Transfers</h3>
+                      <button 
+                        onClick={() => setNotificationOpen(false)}
+                        className="close-notification"
+                      >
+                        <X size={18} />
+                      </button>
+                    </div>
 
-                {pendingTransfers.length === 0 && sentTransfers.length === 0 ? (
-                  <div className="no-notifications">
-                    <p>No pending transfers</p>
-                  </div>
-                ) : (
-                  <div className="notification-list">
-                    {/* Received Transfers */}
-                    {pendingTransfers.length > 0 && (
-                      <>
-                        <div className="notification-section-header">Received Requests</div>
-                        {pendingTransfers.map((transfer) => (
-                          <div key={transfer.id} className="notification-item received">
-                            <div className="notification-content">
-                              <h4>{transfer.properties?.name || 'Property'}</h4>
-                              <p className="from-email">From: {transfer.sender?.[0]?.email || 'Unknown'}</p>
-                              <p className="fractions-info">
-                                <strong>{transfer.num_fractions}</strong> fractions · {formatFCFA(transfer.total_amount, 2)}
-                              </p>
-                            </div>
-                            <div className="notification-actions">
-                              <button 
-                                onClick={() => handleAcceptTransfer(transfer.id)}
-                                className="accept-btn-small"
-                                disabled={loading}
-                              >
-                                <Check size={16} />
-                              </button>
-                              <button 
-                                onClick={() => handleDeclineTransfer(transfer.id)}
-                                className="decline-btn-small"
-                                disabled={loading}
-                              >
-                                <X size={16} />
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                      </>
-                    )}
-
-                    {/* Sent Transfers */}
-                    {sentTransfers.length > 0 && (
-                      <>
-                        <div className="notification-section-header sent">Sent Requests</div>
-                        {sentTransfers.map((transfer) => (
-                          <div key={transfer.id} className="notification-item sent">
-                            <div className="notification-content">
-                              <h4>{transfer.properties?.name || 'Property'}</h4>
-                              <p className="from-email">To: {transfer.to_user_email}</p>
-                              <p className="fractions-info">
-                                <strong>{transfer.num_fractions}</strong> fractions · {formatFCFA(transfer.total_amount, 2)}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                      </>
-                    )}
-
-                    {/* Seller Notifications - New Investments */}
-                    {sellerNotifications.length > 0 && (
-                      <>
-                        <div className="notification-section-header seller">Sales</div>
-                        {sellerNotifications.slice(0, 5).map((notification) => (
-                          <div key={notification.id} className="notification-item seller">
-                            <div className="notification-content">
-                              <h4>{notification.properties?.name || 'Property'}</h4>
-                              <p className="investor-name">Investor: {notification.investor?.full_name || notification.investor?.email}</p>
-                              <p className="fractions-info">
-                                <strong>{notification.num_fractions}</strong> fractions · {formatFCFA(notification.total_amount, 2)}
-                              </p>
-                            </div>
-                          </div>
-                        ))}
-                        {sellerNotifications.length > 5 && (
-                          <div className="notification-view-all">
-                            +{sellerNotifications.length - 5} more investments
-                          </div>
+                    {pendingTransfers.length === 0 && sentTransfers.length === 0 ? (
+                      <div className="no-notifications">
+                        <p>No pending transfers</p>
+                      </div>
+                    ) : (
+                      <div className="notification-list">
+                        {/* Received Transfers */}
+                        {pendingTransfers.length > 0 && (
+                          <>
+                            <div className="notification-section-header">Received Requests</div>
+                            {pendingTransfers.map((transfer) => (
+                              <div key={transfer.id} className="notification-item received">
+                                <div className="notification-content">
+                                  <h4>{transfer.properties?.name || 'Property'}</h4>
+                                  <p className="from-email">From: {transfer.sender?.[0]?.email || 'Unknown'}</p>
+                                  <p className="fractions-info">
+                                    <strong>{transfer.num_fractions}</strong> fractions · {formatFCFA(transfer.total_amount, 2)}
+                                  </p>
+                                </div>
+                                <div className="notification-actions">
+                                  <button 
+                                    onClick={() => handleAcceptTransfer(transfer.id)}
+                                    className="accept-btn-small"
+                                    disabled={loading}
+                                  >
+                                    <Check size={16} />
+                                  </button>
+                                  <button 
+                                    onClick={() => handleDeclineTransfer(transfer.id)}
+                                    className="decline-btn-small"
+                                    disabled={loading}
+                                  >
+                                    <X size={16} />
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+                          </>
                         )}
-                      </>
+
+                        {/* Sent Transfers */}
+                        {sentTransfers.length > 0 && (
+                          <>
+                            <div className="notification-section-header sent">Sent Requests</div>
+                            {sentTransfers.map((transfer) => (
+                              <div key={transfer.id} className="notification-item sent">
+                                <div className="notification-content">
+                                  <h4>{transfer.properties?.name || 'Property'}</h4>
+                                  <p className="from-email">To: {transfer.to_user_email}</p>
+                                  <p className="fractions-info">
+                                    <strong>{transfer.num_fractions}</strong> fractions · {formatFCFA(transfer.total_amount, 2)}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                          </>
+                        )}
+
+                        {/* Seller Notifications - New Investments */}
+                        {sellerNotifications.length > 0 && (
+                          <>
+                            <div className="notification-section-header seller">Sales</div>
+                            {sellerNotifications.slice(0, 5).map((notification) => (
+                              <div key={notification.id} className="notification-item seller">
+                                <div className="notification-content">
+                                  <h4>{notification.properties?.name || 'Property'}</h4>
+                                  <p className="investor-name">Investor: {notification.investor?.full_name || notification.investor?.email}</p>
+                                  <p className="fractions-info">
+                                    <strong>{notification.num_fractions}</strong> fractions · {formatFCFA(notification.total_amount, 2)}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                            {sellerNotifications.length > 5 && (
+                              <div className="notification-view-all">
+                                +{sellerNotifications.length - 5} more investments
+                              </div>
+                            )}
+                          </>
+                        )}
+                      </div>
                     )}
                   </div>
                 )}
               </div>
-            )}
-          </div>
 
-          <Link to="/CreateListing" className="create-listing-btn">
-            <Plus size={18} />
-            <span>Create Listing</span>
-          </Link>
-          
-          <div className="user-menu">
-            <Link to="/profile" className="profile-link">
-              <User size={18} />
-              <span>{firstName}</span>
-            </Link>
-            <button onClick={handleLogout} className="logout-btn">
-              <LogOut size={18} />
-            </button>
-          </div>
+              <Link to="/CreateListing" className="create-listing-btn">
+                <Plus size={18} />
+                <span>Create Listing</span>
+              </Link>
+              
+              <div className="user-menu">
+                <Link to="/profile" className="profile-link">
+                  <User size={18} />
+                  <span>{firstName}</span>
+                </Link>
+                <button onClick={handleLogout} className="logout-btn">
+                  LogOut
+                  <LogOut size={16} />
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Login/Signup buttons when not logged in */}
+              <Link to="/login" className="login-btn">
+                Login
+              </Link>
+              <Link to="/signup" className="signup-btn">
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Hamburger */}
@@ -269,25 +287,38 @@ const Navbar = () => {
       {/* Mobile Menu - Additional Actions */}
       {menuOpen && (
         <div className="mobile-menu">
-          <Link to="/CreateListing" className="mobile-menu-item">
-            <Plus size={18} />
-            Create Listing
-          </Link>
-          <Link to="/profile" className="mobile-menu-item">
-            <User size={18} />
-            {firstName}
-          </Link>
-          <button 
-            onClick={() => setNotificationOpen(!notificationOpen)}
-            className="mobile-menu-item"
-          >
-            <Bell size={18} />
-            Transfers {(pendingTransfers.length + sentTransfers.length) > 0 && `(${pendingTransfers.length + sentTransfers.length})`}
-          </button>
-          <button onClick={handleLogout} className="mobile-menu-item logout">
-            <LogOut size={18} />
-            Logout
-          </button>
+          {user ? (
+            <>
+              <Link to="/CreateListing" className="mobile-menu-item">
+                <Plus size={18} />
+                Create Listing
+              </Link>
+              <Link to="/profile" className="mobile-menu-item">
+                <User size={18} />
+                {firstName}
+              </Link>
+              <button 
+                onClick={() => setNotificationOpen(!notificationOpen)}
+                className="mobile-menu-item"
+              >
+                <Bell size={18} />
+                Transfers {(pendingTransfers.length + sentTransfers.length) > 0 && `(${pendingTransfers.length + sentTransfers.length})`}
+              </button>
+              <button onClick={handleLogout} className="mobile-menu-item logout">
+                <LogOut size={18} />
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="mobile-menu-item">
+                Login
+              </Link>
+              <Link to="/signup" className="mobile-menu-item">
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       )}
     </header>

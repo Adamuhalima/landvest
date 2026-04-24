@@ -415,7 +415,7 @@ const HomePage = () => {
             <h2>Ready to Start Your Investment Journey?</h2>
             <p>Join 15,000+ Cameroonians already earning passive income through real estate</p>
             <div className="cta-buttons">
-              <Link to="/invest" className="btn btn-light btn-large">
+              <Link to="/createListing" className="btn btn-light btn-large">
                 Get Started Today
                 <ArrowUpRight size={20} />
               </Link>

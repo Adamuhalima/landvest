@@ -3,17 +3,100 @@
 .invest-page {
   background: var(--neutral-50);
   min-height: 100vh;
+  padding-top: 60px;
+}
+
+@media (min-width: 640px) {
+  .invest-page {
+    padding-top: 65px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .invest-page {
+    padding-top: 70px;
+  }
 }
 
 /* Hero Section */
 .invest-hero {
   position: relative;
-  min-height: 500px;
+  min-height: 300px;
   background: linear-gradient(135deg, var(--primary-900), var(--primary-800));
   display: flex;
   align-items: center;
-  padding: 120px 0 60px;
+  padding: 40px 1rem 3rem;
   overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .invest-hero {
+    min-height: 400px;
+    padding: 60px 1.5rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .invest-hero {
+    min-height: 500px;
+    padding: 120px 0 3.75rem;
+  }
+}
+
+.invest-hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+  .invest-hero-content {
+    padding: 0;
+  }
+}
+
+.invest-hero-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .invest-hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .invest-hero-title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+.invest-hero-highlight {
+  display: block;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+  .invest-hero-highlight {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .invest-hero-highlight {
+    font-size: var(--font-size-4xl);
+  }
 }
 
 .invest-hero::before {
@@ -78,13 +161,31 @@
 }
 
 .invest-hero-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .invest-hero-description {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .invest-hero-description {
+    font-size: var(--font-size-lg);
+  }
+}
   font-size: var(--font-size-lg);
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--spacing-2xl);
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
+
 
 /* Portfolio Summary */
 .portfolio-summary {

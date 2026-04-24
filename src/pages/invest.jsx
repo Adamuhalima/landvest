@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   TrendingUp,
   Shield,
@@ -33,11 +33,13 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { formatFCFA } from '../utils/currencyFormatter';
+import { supabase } from '../supabaseClient';
 import '../styles/design-system.css';
 import '../styles/invest.css';
 import CreateListing from './createListing';
 
 const InvestPage = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('opportunities');
   const [investmentAmount, setInvestmentAmount] = useState(100000);
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -46,6 +48,7 @@ const InvestPage = () => {
   const [monthlyIncome, setMonthlyIncome] = useState(8750);
   const [totalReturn, setTotalReturn] = useState(12.4);
   const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(null);
 
   // Mock investment opportunities
   const opportunities = [
@@ -251,8 +254,21 @@ const InvestPage = () => {
     }
   ];
 
+  // Check if user is logged in
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+      setUser(currentUser);
+    };
+    checkUser();
+  }, []);
+
   // Handle investment
   const handleInvest = (property) => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
     setSelectedProperty(property);
     setInvestmentAmount(property.minInvestment);
     setShowInvestmentModal(true);

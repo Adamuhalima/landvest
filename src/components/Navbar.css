@@ -18,12 +18,26 @@
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
-  height: 70px;
+  padding: 0 1rem;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .nav-container {
+    padding: 0 1.5rem;
+    height: 65px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-container {
+    padding: 0 1.5rem;
+    height: 70px;
+  }
 }
 
 /* Logo */
@@ -38,10 +52,22 @@
 }
 
 .logo span {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: #38bdf8;
   transition: color 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .logo span {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo span {
+    font-size: 24px;
+  }
 }
 
 .logo span:hover {
@@ -51,19 +77,31 @@
 /* Nav Links - Center */
 .nav-links {
   flex: 1;
-  display: flex;
+  display: none;
   justify-content: center;
   gap: 30px;
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .nav-links {
+    display: flex;
+  }
 }
 
 .nav-links a {
   text-decoration: none;
   color: #d1d5db;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   transition: all 0.3s ease;
   padding: 8px 12px;
+}
+
+@media (min-width: 1024px) {
+  .nav-links a {
+    font-size: 15px;
+  }
 }
 
 .nav-links a:hover {
@@ -134,6 +172,20 @@
   overflow-y: auto;
   z-index: 1001;
   margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .notification-dropdown {
+    width: calc(100vw - 2rem);
+    right: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-dropdown {
+    width: calc(100vw - 1rem);
+    right: 0.5rem;
+  }
 }
 
 .notification-header {

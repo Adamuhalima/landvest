@@ -31,6 +31,7 @@ import { createInvestment, getCurrentUserId, getPropertyInvestmentStats } from '
 import { getPropertyInvestmentProgress } from '../services/sellerService';
 import ProgressBar from '../components/ProgressBar';
 import { formatFCFA } from '../utils/currencyFormatter';
+import { supabase } from '../supabaseClient';
 import '../styles/property-details.css';
 
 const PropertyDetails = () => {
@@ -43,6 +44,7 @@ const PropertyDetails = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [showLightbox, setShowLightbox] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [user, setUser] = useState(null);
   
   // Investment states
   const [showInvestModal, setShowInvestModal] = useState(false);
@@ -80,13 +82,18 @@ const PropertyDetails = () => {
     fetchProperty();
   }, [id]);
 
-  // Get current user
+  // Check if user is logged in
   useEffect(() => {
-    const fetchCurrentUser = async () => {
-      const userId = await getCurrentUserId();
-      setCurrentUserId(userId);
+    const checkUser = async () => {
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+      setUser(currentUser);
+      
+      if (currentUser) {
+        const userId = await getCurrentUserId();
+        setCurrentUserId(userId);
+      }
     };
-    fetchCurrentUser();
+    checkUser();
   }, []);
 
   // Fetch investment stats for property
@@ -469,15 +476,22 @@ const PropertyDetails = () => {
                   ✓ Investment successful! Check your profile for details.
                 </div>
               )}
-              <button 
-                onClick={() => setShowInvestModal(true)}
+            
+            </div>
+            <button 
+                onClick={() => {
+                  if (!user) {
+                    navigate('/login');
+                  } else {
+                    setShowInvestModal(true);
+                  }
+                }}
                 className="invest-button"
-                disabled={currentUserId === property.user_id}
+                disabled={user && currentUserId === property.user_id}
               >
                 <TrendingUp size={18} />
                 Invest Now
               </button>
-            </div>
 
             {/* Contact Card */}
             <div className="contact-card">
