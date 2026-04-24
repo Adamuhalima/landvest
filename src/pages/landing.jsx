@@ -87,7 +87,7 @@ const Landingpage = () => {
       <nav className="landing-nav">
         <div className="nav-container">
           <div className="nav-logo">
-            <span className="logo-icon">🏠</span>
+            <span className="logo-icon"></span>
             <span className="logo-text">Land<span>Vest</span></span>
           </div>
 
