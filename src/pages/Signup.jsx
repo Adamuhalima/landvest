@@ -5,6 +5,7 @@ import { Mail, Lock, User, ArrowRight } from 'lucide-react';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -65,7 +66,30 @@ const Signup = () => {
         )}
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+
+           {/* F.Name */}
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email address
+            </label>
+            <div className="relative">
+              {/* <div className="absolute inset-y-0 left-90 pl-3 flex items-center pointer-events-none">
+                <Mail className="h-4 sm:h-5 w-4 sm:w-5 text-neutral-400" />
+              </div> */}
+              <input
+                id="name"
+                name="name"
+                type="name"
+                required
+                className="form-input pl-10"
+                placeholder="Enter your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+          </div>
           {/* Email */}
+
           <div className="form-group">
             <label htmlFor="email" className="form-label">
               Email address
@@ -86,6 +110,7 @@ const Signup = () => {
               />
             </div>
           </div>
+
 
           {/* Password */}
           <div className="form-group">

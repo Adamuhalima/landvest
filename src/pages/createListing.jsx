@@ -151,6 +151,9 @@ export default function CreateListing() {
                 <option value="house">House</option>
                 <option value="villa">Villa</option>
                 <option value="office">Office</option>
+                <option value="land">Land</option>
+                <option value="rental">Rental</option>
+                <option value="commercial">Commercial</option>
               </select>
             </div>
 

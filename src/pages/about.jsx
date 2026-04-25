@@ -73,14 +73,14 @@ const AboutPage = () => {
       name: 'Adamu Mouminih',
       role: 'Founder & CEO',
       bio: 'Former real estate developer with 15+ years experience in the Cameroonian market. Passionate about democratizing property investment.',
-      image: 'src/assets/adamulinkin.jpeg',
+      image: 'https://res.cloudinary.com/dh7dv5804/image/upload/v1777116276/adamulinkin_lbqtcu.jpg',
       expertise: ['Real Estate Development', 'Investment Strategy', 'Market Analysis']
     },
     {
       name: 'Fongang Caleb',
       role: 'Chief Investment Officer',
       bio: 'Ex-investment banker with expertise in property valuation and portfolio management. Leads our property vetting process.',
-      image: 'src/assets/CALEB.jpg',
+      image: 'https://res.cloudinary.com/dh7dv5804/image/upload/v1777116366/CALEB_cqgpre.jpg',
 
       expertise: ['Financial Analysis', 'Risk Management', 'Portfolio Strategy']
     },
@@ -88,14 +88,14 @@ const AboutPage = () => {
       name: 'El-Hajj Khalid Duni',
       role: 'Head of Operations',
       bio: 'Ensures smooth day-to-day operations and investor relations. Previously managed large-scale property portfolios.',
-      image: 'src/assets/Alhadjikhalid.jpg',
+      image: 'https://res.cloudinary.com/dh7dv5804/image/upload/v1777116374/Alhadjikhalid_tcew7u.jpg',
       expertise: ['Operations Management', 'Investor Relations', 'Property Management']
     },
     {
       name: 'Prof. Abdu Yerima',
       role: 'Legal & Compliance',
       bio: 'Real estate attorney ensuring all properties have clean titles and our platform complies with regulations.',
-      image: 'src/assets/Abduyerima.jpg',
+      image: 'https://res.cloudinary.com/dh7dv5804/image/upload/v1777116381/Abduyerima_abljo6.jpg',
       expertise: ['Property Law', 'Regulatory Compliance', 'Title Verification']
     }
   ];
