@@ -136,7 +136,7 @@ const Login = () => {
 
         {/* Signup Link */}
         <div className="text-center">
-          <p className="text-green-200 text-xs sm:text-sm">
+          <p className="text-neutral-600 text-xs sm:text-sm">
             Don't have an account?{' '}
             <Link to="/signup" className="font-semibold text-primary-600 hover:text-primary-700">
               Sign up here.

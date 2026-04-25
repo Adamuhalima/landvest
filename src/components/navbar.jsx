@@ -129,7 +129,7 @@ const Navbar = () => {
         </nav>
 
         {/* Right Section - Notifications, Create Listing, Profile, Logout */}
-        <div className="nav-right-section desktop-only">
+        <div className="nav-right-section">
           {/* Show only when logged in */}
           {user ? (
             <>
@@ -289,21 +289,6 @@ const Navbar = () => {
         <div className="mobile-menu">
           {user ? (
             <>
-              <Link to="/CreateListing" className="mobile-menu-item">
-                <Plus size={18} />
-                Create Listing
-              </Link>
-              <Link to="/profile" className="mobile-menu-item">
-                <User size={18} />
-                {firstName}
-              </Link>
-              <button 
-                onClick={() => setNotificationOpen(!notificationOpen)}
-                className="mobile-menu-item"
-              >
-                <Bell size={18} />
-                Transfers {(pendingTransfers.length + sentTransfers.length) > 0 && `(${pendingTransfers.length + sentTransfers.length})`}
-              </button>
               <button onClick={handleLogout} className="mobile-menu-item logout">
                 <LogOut size={18} />
                 Logout

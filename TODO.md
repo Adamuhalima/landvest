@@ -1,11 +1,8 @@
-# Login Page Implementation TODO
+# TODO - Mobile Navbar & Auth Responsiveness
 
-## Plan Breakdown:
-
-1. ✅ Created TODO.md
-2. ✅ Created src/pages/Login.jsx
-3. ✅ Updated src/App.jsx
-4. ✅ Updated src/components/navbar.jsx
-5. ✅ Tested implementation (run dev server, verify login page accessible, Supabase auth works)
-6. ✅ All core steps complete
-7. Login page created with authentication matching site colors.
+- [x] Update `src/components/navbar.jsx` - remove `desktop-only` class from right section
+- [x] Update `src/components/navbar.jsx` - simplify mobile menu to avoid duplicate items
+- [x] Update `src/components/Navbar.css` - fix logo font size order (smaller on mobile)
+- [x] Update `src/components/Navbar.css` - make right section horizontal and compact on mobile
+- [x] Update `src/pages/Login.jsx` - fix unreadable signup link color
+- [x] Update `src/pages/Signup.jsx` - keep `left-90` as requested, verify responsive classes
